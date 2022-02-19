@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Multiplication Table Game</title>  
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>  
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script>
+          var myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+          var myArray2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+          $counter = 0
+        </script>
+       
+   
+    </head>
+    <body> 
+      <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container-xl">
+        <a class="navbar-brand" href="index.html">Game</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home page</a>
+            <li class="nav-item">
+                  <a class="nav-link" href="Sequential Multiplication.html">Sequential Multiplication</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="Mixed Multiplication.html">Mixed Multiplication</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="Random Multiplication.html">Random Multiplication</a>
+                </li>
+          </ul> 
+        </div>
+      </div>
+      </nav>
+      <!-- 
+        <nav class="navbar nav-pills flex-column flex-sm-row">
+          <a class="flex-sm-fill text-sm-center nav-link" href="index.html">Ana Sayfa</a>
+          <a class="flex-sm-fill text-sm-center nav-link" href="sirali.html">Sıralı Çarpım Tablosu</a>
+          <a class="flex-sm-fill text-sm-center nav-link" href="karisik.html">Karışık Çarpım Tablosu</a>
+          <a class="flex-sm-fill text-sm-center nav-link active" href="rastgele.html">Rastgele Sorular</a>
+      </nav>
+      -->
+      <br>
+      <!--
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+              <h1 class="display-4">Rastgele Çarpım Tablosu Oyunu</h1>
+              <p class="lead">Aşağıdan seçim yapın</p>
+            </div>
+          </div>
+        -->
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9">
+                  <div id="pag">
+                    <button type="button" class="btn btn-success" value="1" onclick="tabloYap(this.value)">Get Ready !</button>
+                  </div>
+            </div>
+            
+            <div class="col-md-3">
+              <span class="badge badge-pill badge-danger" id="res"></span>
+              <span class="badge badge-pill badge-success" id="true"></span>
+              <span class="badge badge-pill badge-danger" id="false"></span> 
+            </div>
+            </div>
+            <div class="row" style="margin-top:5px; margin-bottom:-20px;" id="timerUst">
+              <div class="col-sm-12"> 
+                <div class="progress">
+                  <div id="timer" class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                </div>
+              </div>
+            </div>
+
+            <table class="table table-bordered table-dark" id="tablo">
+              <tbody>
+                <tr>
+                  <td class="first">1</th>
+                  <td>x</td>
+                  <td class="second"><script></script></td>
+                  <td>=</td>
+                  <td><input type="number" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td class="first">1</th>
+                  <td>x</td>
+                  <td class="second">2</td>
+                  <td>=</td>
+                  <td><input type="number" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td class="first">1</th>
+                  <td>x</td>
+                  <td class="second">3</td>
+                  <td>=</td>
+                  <td><input type="number" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td class="first">1</th>
+                  <td>x</td>
+                  <td class="second">4</td>
+                  <td>=</td>
+                  <td><input type="number" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td class="first">1</th>
+                  <td>x</td>
+                  <td class="second">5</td>
+                  <td>=</td>
+                  <td><input type="number" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td class="first">1</th>
+                  <td>x</td>
+                  <td class="second">6</td>
+                  <td>=</td>
+                  <td><input type="number" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td class="first">1</th>
+                  <td>x</td>
+                  <td class="second">7</td>
+                  <td>=</td>
+                  <td><input type="number" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td class="first">1</th>
+                  <td>x</td>
+                  <td class="second">8</td>
+                  <td>=</td>
+                  <td><input type="number" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td class="first">1</th>
+                  <td>x</td>
+                  <td class="second">9</td>
+                  <td>=</td>
+                  <td><input type="number" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td class="first">1</th>
+                  <td>x</td>
+                  <td class="second">10</td>
+                  <td>=</td>
+                  <td><input type="number" class="form-control"></td>
+                </tr>
+                <tr>
+                  <!-- <td colspan="5">
+                    <button type="button" class="btn btn-success btn-lg btn-block" onclick="control()">Kontrol Et</button>
+                  </td> -->
+                </tr>  
+              </tbody>
+            </table>
+        </div>
+    </body>
+<style>
+  table tr td, table tr th{
+    text-align: center;
+    font-size: 1.5em;
+   
+  }
+  table{margin-top: 2em;}
+
+  #tablo, #timerUst{
+    display:none;
+  }
+  #true, #false, #res{
+    font-size: 1.5em;
+    margin-top: 5px;
+  }
+ #pag > button{
+    font-size: 1.5em;
+    margin-top: 5px;
+    margin-right: 5px;
+    
+  }
+</style>
+
+<script>
+  var downloadTimer
+  function shuffle(arra1) {
+    var ctr = arra1.length, temp, index;
+    while (ctr > 0) {
+        index = Math.floor(Math.random() * ctr);
+        ctr--;
+        temp = arra1[ctr];
+        arra1[ctr] = arra1[index];
+        arra1[index] = temp;
+    }
+    return arra1;
+  }
+  function tabloYap(what){
+    sayac()
+    $(".form-control").prop("disabled", false)
+    //console.log($('#tablo').is(':visible'))
+    if($('#tablo').is(':visible')){
+      var ret = confirm("Zaten bir tablo var emin misin?")
+      if(ret){
+        // değişken çarpanı seçiyor
+        var i = 0
+        myArray = shuffle(myArray)
+        myArray2 = shuffle(myArray2)
+        $('#tablo tr').each(function() {
+          $(this).find(".first").html(myArray[i]);
+          $(this).find(".second").html(myArray2[i]);
+          $(this).css("color", "white")
+          i++
+        });
+        // 
+        $('#tablo').css('display', 'table')
+        $('#tablo > tr > td').css('color', 'white')
+        $(".form-control").val('')
+        $('#timerUst').css("display", "block")
+      }
+    }
+    else{
+      // değişken çarpanı seçiyor
+      var i = 0
+      myArray = shuffle(myArray)
+      myArray2 = shuffle(myArray2)
+      $('#tablo tr').each(function() {
+        $(this).find(".first").html(myArray[i]);
+          $(this).find(".second").html(myArray2[i]);
+        i++
+      });
+      // 
+      $('#tablo').css('display', 'table')
+      $('#tablo > tr > td').css('color', 'white')
+      $(".form-control").val('')
+      $('#timerUst').css("display", "block")
+    }
+  }
+  function control(){
+    var hata = 0
+    clearInterval(downloadTimer)
+    $('#timer').removeClass("progress-bar-animated")
+      $('#tablo tr').each(function() {
+        var bir = $(this).find(".first").html();
+        var iki = $(this).find(".second").html();   
+        var resU = $(this).find(".form-control").val();
+        //console.log(bir * iki + "=?" + resU);
+        if(bir * iki != resU) {
+          hata++
+          $(this).css("color","red")
+        }
+        else {
+          $(this).css("color","white")
+        }
+      });
+      hata--
+      $("#res").html($counter + " Sec : ")
+      $("#true").html((10 - hata) + " Correct ")
+      $("#false").html(hata + " Incoorect ")
+      if(hata == 0)
+        var devamMi = confirm("Congratulations All Correct ! \nWould you like to play one more time??")
+        if(devamMi){
+          $('#tablo').css('display', 'none')
+          tabloYap(1)
+        }
+  }
+  function sayac(){
+        var timeleft = 100;
+        $counter = 0;
+        downloadTimer = setInterval(function(){
+          if(timeleft <= 0){
+            clearInterval(downloadTimer);
+            console.log("Times Up Dude !")
+            alert("Times Up Dude ")
+            $(".form-control").prop("disabled", true)
+            $('#timer').removeClass("progress-bar-animated")
+            control()
+          }
+          $('#timer').css('width', 100-timeleft + '%').attr('aria-valuenow', 100-timeleft); 
+          //document.getElementById("timer").value = 100 - timeleft;
+          timeleft -= 1.75 
+          $counter++
+        }, 1000);
+    }
+
+
+</script>
+</html>
+
+
